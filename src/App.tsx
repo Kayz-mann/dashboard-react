@@ -15,9 +15,12 @@ import Line from './scenes/Line';
 import FAQ from './scenes/FAQ';
 import Geography from './scenes/Geography';
 import Calendar from './scenes/Calendar';
+import SidebarLayout from './scenes/global/SidebarLayout';
+
 
 function App() {
   const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
   const contextValue = { ...colorMode, toggleColorMode: colorMode.toggleColorMode };
 
@@ -27,9 +30,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className='app'>
+          <SidebarLayout isSidebar={isSidebar} />
           <main className='content'>
             <TopBar />
-
             <Routes>
               <Route path='/' element={<Dashboard />} />
               <Route path='/team' element={<Team />} />
