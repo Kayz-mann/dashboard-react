@@ -4,7 +4,7 @@ import { tokens } from '../theme/theme';
 import React from 'react';
 
 interface ProgressProps {
-    progress: number | string;
+    progress?: number | string;
     size?: string
 }
 

@@ -79,7 +79,7 @@ const Form = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.lastName}
-                name='firstName'
+                name='lastName'
                 error={!!touched.lastName && !!errors.lastName}
                 sx={{ gridColumn: 'span 2' }}
               />

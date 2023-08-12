@@ -5,8 +5,8 @@ import { ColorModeContext, useMode } from './theme/theme'
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import TopBar from './scenes/global/TopBar';
-import { Form, Route, Routes } from 'react-router-dom';
-import Dashboard from './scenes/dashboard';
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './scenes/dashboard/Dashboard';
 import Team from './scenes/Team';
 import Contacts from './scenes/Contacts';
 import Bar from './scenes/Bar';
@@ -17,6 +17,7 @@ import Geography from './scenes/Geography';
 import Calendar from './scenes/Calendar';
 import SidebarLayout from './scenes/global/SidebarLayout';
 import Invoices from './scenes/Invoices';
+import Form from './scenes/Form';
 
 
 function App() {

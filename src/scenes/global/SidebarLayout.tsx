@@ -64,6 +64,8 @@ const SidebarLayout: React.FC<SidebarProps> = ({ }) => {
                     backgroundColor: "transparent !important",
                     border: "none !important",
                     borderWidth: "0px !important",
+                    borderRightColor: `${colors.grey[600]}!important`,
+                    borderRightWidth: '0px !important'
                 },
 
                 "& .ps-sidebar-inner": {
