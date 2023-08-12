@@ -2,10 +2,11 @@ import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { tokens } from '../theme/theme';
 import { Box, Typography, useTheme } from '@mui/material';
 import Header from '../components/Header';
+import { tokens } from '../theme/theme';
 import { mockDataTeam } from '../data/mockData';
+
 
 const Team = () => {
     const theme = useTheme();
@@ -14,13 +15,13 @@ const Team = () => {
     const columns: GridColDef[] = [
         {
             field: 'id',
-            headerName: 'ID'
+            headerName: 'ID',
         },
         {
             field: 'name',
             headerName: 'Name',
             flex: 1,
-            cellClassName: 'name-column--cell'
+            cellClassName: 'name-column--cell',
         },
         {
             field: 'age',
@@ -43,19 +44,21 @@ const Team = () => {
             field: 'access',
             headerName: 'Access Level',
             flex: 1,
-            renderCell: ({ row: [access] }) => {
+            renderCell: ({ row }) => {
+                const access = row.access;
                 return (
                     <Box
-                        width='60%'
+                        width='85%'
                         m='0 auto'
                         p='5px'
                         display='flex'
                         justifyContent='center'
                         borderRadius='4px'
                         sx={{
-                            backgroundColor: access === 'admin'
-                                ? colors.greenAccent[600]
-                                : colors.greenAccent[700]
+                            backgroundColor:
+                                access === 'admin'
+                                    ? colors.greenAccent[600]
+                                    : colors.greenAccent[700],
                         }}
                     >
                         {access === 'admin' && <AdminPanelSettingsOutlinedIcon />}
@@ -65,10 +68,12 @@ const Team = () => {
                             {access}
                         </Typography>
                     </Box>
-                )
-            }
+                );
+            },
         },
-    ]
+    ];
+
+
     return (
         <Box m='20px'>
             <Header title='TEAM' subtitle='Managing the Team Members' />
@@ -86,7 +91,8 @@ const Team = () => {
                         color: colors.greenAccent[300]
                     },
                     '& .MuiDataGrid-columnHeaders': {
-                        backgroundColor: colors.blueAccent[700]
+                        backgroundColor: colors.blueAccent[700],
+                        borderBottom: 'none',
                     },
                     '& .MuiDataGrid-virtualScroller': {
                         backgroundColor: colors.primary[400]
@@ -94,13 +100,13 @@ const Team = () => {
                     '& .MuiDataGrid-footerContainer': {
                         borderTop: 'none',
                         backgroundColor: colors.blueAccent[700]
-                    }
+                    },
                 }}
             >
                 <DataGrid rows={mockDataTeam} columns={columns} />
             </Box>
         </Box>
-    )
-}
+    );
+};
 
-export default Team
+export default Team;
